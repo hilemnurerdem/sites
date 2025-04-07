@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Platform Database - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="project-card">
+            <div class="project-header">
+                <h1>Game Platform Database</h1>
+                <div class="project-meta">
+                    <span><i class="fas fa-calendar"></i> 2022</span>
+                    <span><i class="fas fa-code"></i> PostgreSQL, Java</span>
+                    <span><i class="fas fa-layer-group"></i> Database Management Systems</span>
+                </div>
+            </div>
+
+            <div class="project-banner">
+                <img src="images/veri.png" alt="Game Platform Database" class="banner-image">
+            </div>
+
+            <section class="project-overview">
+                <h2>Project Overview</h2>
+                <p>A comprehensive database system for a game sales platform developed as part of the Database Management Systems course. The system manages user accounts, game libraries, transactions, and community features.</p>
+            </section>
+
+            <section class="project-features">
+                <h2>Database Components</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3><i class="fas fa-user"></i> User Management</h3>
+                        <p>User profiles with ID, username, password, email, and TCKN</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><i class="fas fa-gamepad"></i> Game Management</h3>
+                        <p>Game details including ID, name, price, publisher, and release date</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><i class="fas fa-users"></i> Community Features</h3>
+                        <p>Community groups with capacity, member count, and membership management</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="technical-details">
+                <h2>Technical Implementation</h2>
+                <div class="tech-content">
+                    <h3>Database Structure</h3>
+                    <ul>
+                        <li>User accounts and authentication system</li>
+                        <li>Game ownership and library management</li>
+                        <li>News and announcements system</li>
+                        <li>Sales platform with transaction tracking</li>
+                        <li>User inventory management</li>
+                        <li>Community system with group management</li>
+                        <li>Digital wallet system</li>
+                        <li>User ranking system</li>
+                    </ul>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Multiple game ownership per user</li>
+                        <li>Publisher news and announcements</li>
+                        <li>Transaction history tracking</li>
+                        <li>Multi-group membership support</li>
+                        <li>Digital wallet with transaction history</li>
+                        <li>User inventory management</li>
+                        <li>Flexible user ranking system</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="implementation-details">
+                <h2>Database Tables</h2>
+                <div class="architecture-content">
+                    <h3>Core Tables</h3>
+                    <ul>
+                        <li>Users: user_id, username, password, email, tckn</li>
+                        <li>Games: game_id, name, price, publisher, release_date</li>
+                        <li>Companies: company_id, name, email</li>
+                        <li>News: news_id, topic, title</li>
+                        <li>Sales Platform: sale_id, product_name, purchase_date, sale_date</li>
+                        <li>Communities: community_id, capacity, member_count, membership_number</li>
+                        <li>Wallet: user_id, wallet_id, balance, card_info, transaction_history</li>
+                        <li>Inventory: inventory_id, product_name, product_price, product_details</li>
+                        <li>User Ranks: rank_id, rank_level</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="project-results">
+                <h2>Project Outcomes</h2>
+                <div class="results-content">
+                    <h3>Achievements</h3>
+                    <ul>
+                        <li>Successfully implemented all core database functionalities</li>
+                        <li>Created efficient relationships between tables</li>
+                        <li>Implemented secure user authentication system</li>
+                        <li>Developed comprehensive game management system</li>
+                        <li>Created flexible community management features</li>
+                    </ul>
+
+                    <h3>Core Features Implemented</h3>
+                    <ul>
+                        <li>Her bir kullanıcının: kullanıcı id, kullanıcı ismi, kullanıcı şifresi, mail adresi, tckn bulunur</li>
+                        <li>Uygulamadaki her bir kullanıcının sahip olduğu oyunlar olacak</li>
+                        <li>Uygulamada aynı zamanda oyunlar bulunur: oyun id, oyun adı, oyun fiyatı, oyun firması, oyun çıkış tarihi bulunur</li>
+                        <li>Oyunların ilişkili olduğu firmalar olacak</li>
+                        <li>Uygulamada son olarak firmalar olacak: firma id, firma adı, firma mail adresi olacak</li>
+                        <li>Uygulamada haberler olacak: haber id, haber konusu, haber adı bulunur</li>
+                        <li>Firmalar oyunlarla ilgili haber yayınlayabilecek</li>
+                        <li>Haberler oyun çıkarabilecek</li>
+                        <li>Uygulamada satış platformu olacak: satış id, ürün adı, satın alma tarihi, satma tarihi bulunur</li>
+                        <li>Her bir kullanıcı satış platformunda birden fazla ürün alabilir de satabilir de</li>
+                        <li>Uygulamada kullanıcıların katılacağı topluluklar olacak: topluluk id, Kapasite sayısı, topluluk sayısı, üyelik numarası olacak</li>
+                        <li>Her bir kullanıcı birden fazla topluluğa üye olabilir ve toplulukların kapasite sayısı olacak</li>
+                        <li>Uygulamada kütüphane olacak: kütüphane id, kullanıcı girişi, oyun id, kullanıcının sahip olduğu oyun sayısı olacak</li>
+                        <li>Her bir kullanıcının bir kütüphanesi olacak. Her bir kütüphane birden fazla oyunla bağlantılı olacak</li>
+                        <li>Uygulamanın cüzdan olacak: kullanıcı id, cüzdan id, bakiye bilgisi, kart bilgisi, alım satım geçmişi, para yükleme olacak</li>
+                        <li>Her bir kullanıcının bir cüzdanı olabilir ve bu cüzdanla birden fazla satış yapabilir</li>
+                        <li>Uygulamada kullanıcı envanteri olacak: envanter id, ürün adı, ürün fiyatı, ürün özelliği olacak</li>
+                        <li>Her bir kullanıcının bir envanteri olacak</li>
+                        <li>Uygulamada kullanıcı rütbesi olacak: rütbe id, rütbe seviyesi olacak</li>
+                        <li>Her bir kullanıcının birden fazla rütbesi olabilir</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

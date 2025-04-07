@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Process Tracking System - Project Details</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="project-details">
+            <div class="project-header">
+                <h1>Production Process Tracking and Analysis Application with SQL Server</h1>
+                <div class="project-meta">
+                    <span><i class="fas fa-calendar"></i> 2025</span>
+                    <span><i class="fas fa-code"></i> Python, SQL Server</span>
+                    <span><i class="fas fa-layer-group"></i> Process Management</span>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="project-image main-image">
+                    <img src="images/sum.jpg" alt="SumChemical Project">
+                </div>
+
+                <div class="project-description">
+                    <h2>Project Overview</h2>
+                    <p>A tracking system that displays work orders and process parameters using SQL Server database. This desktop application is specifically designed for chemical production process monitoring and analysis, providing real-time insights and optimization tools.</p>
+
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <h3>SQL Server Integration</h3>
+                                <p>Robust database management system for storing and retrieving production data efficiently.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h3>Real-time Monitoring</h3>
+                                <p>Live tracking of production processes, parameters, and work orders with instant updates.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-desktop"></i>
+                            <div>
+                                <h3>User Interface</h3>
+                                <p>Intuitive Tkinter-based interface for easy navigation and process management.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-file-alt"></i>
+                            <div>
+                                <h3>Reporting System</h3>
+                                <p>Comprehensive reporting tools for analyzing production metrics and performance.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h2>Application Screenshots</h2>
+                    <div class="screenshot-gallery">
+                        <div class="screenshot-item">
+                            <img src="images/data.jpg" alt="Data Analysis Interface">
+                            <p>Data analysis and visualization dashboard</p>
+                        </div>
+                    </div>
+
+                    <h2>Technical Details</h2>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <h3>Frontend</h3>
+                            <ul>
+                                <li>Python Tkinter for GUI</li>
+                                <li>Custom widgets for data display</li>
+                                <li>Real-time update system</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h3>Backend</h3>
+                            <ul>
+                                <li>SQL Server database</li>
+                                <li>Python data processing</li>
+                                <li>Query optimization</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h3>Features</h3>
+                            <ul>
+                                <li>Process parameter tracking</li>
+                                <li>Work order management</li>
+                                <li>Performance analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2>Development Process</h2>
+                    <div class="process-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Requirements Analysis</h3>
+                                <p>Understanding chemical production process requirements and designing an efficient tracking system.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Database Design</h3>
+                                <p>Creating an optimized SQL Server database schema for process data management.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>UI Development</h3>
+                                <p>Building an intuitive interface focused on real-time monitoring and control.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Testing & Optimization</h3>
+                                <p>Ensuring accurate data tracking and efficient database operations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Technical Implementation</h2>
+                    <div class="code-sections">
+                        <div class="code-section">
+                            <h3>Database Connection</h3>
+                            <p>The application uses SQL Server for data storage, with a robust connection handling system:</p>
+                            <pre><code class="python">
+import pyodbc
+
+def get_db_connection():
+    conn = pyodbc.connect('Driver={SQL Server};'
+                         'Server=SERVER_NAME;'
+                         'Database=DATABASE_NAME;'
+                         'Trusted_Connection=yes;')
+    return conn
+
+def execute_query(query, params=None):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        if params:
+            cursor.execute(query, params)
+        else:
+            cursor.execute(query)
+        conn.commit()
+    except Exception as e:
+        print(f"Error executing query: {e}")
+        conn.rollback()
+    finally:
+        conn.close()
+                            </code></pre>
+                        </div>
+
+                        <div class="code-section">
+                            <h3>Process Tracking</h3>
+                            <p>Real-time process parameter monitoring implementation:</p>
+                            <pre><code class="python">
+class ProcessTracker:
+    def __init__(self):
+        self.conn = get_db_connection()
+        self.setup_ui()
+
+    def setup_ui(self):
+        self.root = tk.Tk()
+        self.root.title("Process Tracking System")
+        
+        # Create main frame
+        self.main_frame = ttk.Frame(self.root, padding="10")
+        self.main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+
+    def update_process_data(self):
+        query = """
+            SELECT parameter_name, current_value, target_value
+            FROM process_parameters
+            WHERE process_id = ?
+        """
+        cursor = self.conn.cursor()
+        cursor.execute(query, (self.current_process_id,))
+        return cursor.fetchall()
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html> 
