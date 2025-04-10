@@ -51,20 +51,20 @@
         <section class="contact-form-section">
             <div class="form-container">
                 <h2>Send Message</h2>
-                <form>
+                <form id="contact-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" placeholder="Your Name" required id="name">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" placeholder="Your Email" required id="email">
                         </div>
                     </div>
                     <div class="form-group">
                         <input type="text" placeholder="Subject" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" required></textarea>
+                        <textarea placeholder="Your Message" required id="message"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
@@ -77,5 +77,26 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // E-posta gönderme bağlantısını oluştur
+        const mailtoLink = `mailto:hilemnurerdem@gmail.com?subject=Portfolio Contact Form - ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+        
+        // E-posta uygulamasını aç
+        window.location.href = mailtoLink;
+        
+        // Formu temizle
+        this.reset();
+        
+        // Kullanıcıya bilgi ver
+        alert('Form başarıyla gönderildi! E-posta uygulamanız açılacak.');
+    });
+    </script>
 </body>
 </html> 
