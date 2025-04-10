@@ -1809,4 +1809,86 @@ img {
     .update-section p {
         font-size: 1rem;
     }
+}
+
+/* Banner Styles - Desktop */
+@media (min-width: 1024px) {
+    .banner {
+        height: 600px;
+    }
+
+    .banner-content {
+        max-width: 1000px;
+    }
+
+    .banner-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .banner-content p {
+        font-size: 2rem;
+    }
+
+    .typing-text {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+    }
+
+    .code-text {
+        max-width: 800px;
+        padding: 1.5rem 2rem;
+    }
+
+    .code-line {
+        font-size: 1.3rem;
+    }
+}
+
+/* Projects Grid - Desktop */
+@media (min-width: 1024px) {
+    .projects-container {
+        max-width: 1400px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        padding: 3rem;
+    }
+
+    .project-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .project-card img {
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .project-info {
+        padding: 2.5rem;
+    }
+
+    .project-info h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-info p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+
+    .view-more {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+    }
+}
+
+/* Main Content - Desktop */
+@media (min-width: 1024px) {
+    .main-content {
+        padding: 2rem 4rem;
+    }
 } 
