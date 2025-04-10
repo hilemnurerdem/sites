@@ -20,7 +20,7 @@
     </nav>
 
     <main class="main-content">
-        <div class="project-card">
+        <section class="project-details">
             <div class="project-header">
                 <h1>Mobile Applications with Kotlin</h1>
                 <div class="project-meta">
@@ -30,108 +30,88 @@
                 </div>
             </div>
 
-            <div class="project-banner">
-                <img src="images/kotlin.jpg" alt="Mobile Development with Kotlin" class="banner-image">
-            </div>
-
-            <div class="projects-list">
-                <div class="project-item">
-                    <h3>Real Estate Application</h3>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img src="images/ev.jpg" alt="Real Estate Application Screenshot">
-                        </div>
-                        <div class="project-details">
-                            <p>A comprehensive real estate management application built with Kotlin for Android.</p>
-                            <ul>
-                                <li>Property listing management system</li>
-                                <li>Advanced search filters and sorting</li>
-                                <li>User authentication and profiles</li>
-                                <li>Image gallery and property details</li>
-                                <li>Contact and messaging system</li>
-                            </ul>
-                            <a href="https://github.com/hilemnurerdem/Emlak_Uygulama" class="github-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
+            <div class="project-content">
+                <div class="project-image main-image">
+                    <img src="images/kotlin.jpg" alt="Mobile Development with Kotlin">
                 </div>
 
-                <div class="project-item">
-                    <h3>Game Development Project</h3>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img src="images/oyun.jpg" alt="Game Application Screenshot">
-                        </div>
-                        <div class="project-details">
-                            <p>An engaging Android game developed using Kotlin and modern game development practices.</p>
-                            <ul>
-                                <li>Custom game mechanics and physics</li>
-                                <li>Interactive user interface</li>
-                                <li>Score tracking and leaderboards</li>
-                                <li>Sound effects and animations</li>
-                                <li>Performance optimization</li>
-                            </ul>
-                            <a href="https://github.com/hilemnurerdem/Oyun" class="github-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <div class="project-description">
+                    <h2>Project Overview</h2>
+                    <p>A collection of Android applications developed using Kotlin, showcasing various mobile development capabilities and user-focused features.</p>
 
-                <div class="project-item">
-                    <h3>Food Ordering System</h3>
-                    <div class="project-content">
-                        <div class="project-image">
-                            <img src="images/yemek.jpg" alt="Food Ordering Application Screenshot">
-                        </div>
-                        <div class="project-details">
-                            <p>A feature-rich food ordering application that connects restaurants with customers.</p>
-                            <ul>
-                                <li>Restaurant management system</li>
-                                <li>Order processing and tracking</li>
-                                <li>Menu customization options</li>
-                                <li>Real-time order updates</li>
-                                <li>Payment integration</li>
-                            </ul>
-                            <a href="https://github.com/hilemnurerdem/yemek_siparisii" class="github-link" target="_blank">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <section class="tech-details">
-                <h2>Technical Implementation</h2>
-                <div class="tech-content">
-                    <h3>Development Approach</h3>
-                    <ul>
-                        <li>Modern Android development with Kotlin</li>
-                        <li>MVVM architecture pattern</li>
-                        <li>Clean Architecture principles</li>
-                        <li>Material Design guidelines</li>
-                        <li>Responsive UI implementation</li>
+                    <h2>Projects</h2>
+                    <ul class="feature-list">
+                        <li>
+                            <i class="fas fa-home"></i>
+                            <div>
+                                <h3>Real Estate Application</h3>
+                                <p>A comprehensive real estate management application with property listings, search filters, and user profiles.</p>
+                                <div class="project-image">
+                                    <img src="images/ev.jpg" alt="Real Estate Application Screenshot">
+                                </div>
+                                <a href="https://github.com/hilemnurerdem/Emlak_Uygulama" class="github-link" target="_blank">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-gamepad"></i>
+                            <div>
+                                <h3>Game Development Project</h3>
+                                <p>An engaging Android game with custom mechanics, physics, and interactive features.</p>
+                                <div class="project-image">
+                                    <img src="images/oyun.jpg" alt="Game Application Screenshot">
+                                </div>
+                                <a href="https://github.com/hilemnurerdem/Oyun" class="github-link" target="_blank">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <h3>Food Ordering System</h3>
+                                <p>A feature-rich food ordering application connecting restaurants with customers.</p>
+                                <div class="project-image">
+                                    <img src="images/yemek.jpg" alt="Food Ordering Application Screenshot">
+                                </div>
+                                <a href="https://github.com/hilemnurerdem/yemek_siparisii" class="github-link" target="_blank">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </li>
                     </ul>
 
-                    <h3>Key Features</h3>
-                    <ul>
-                        <li>Local data persistence with Room Database</li>
-                        <li>RESTful API integration</li>
-                        <li>Dependency injection with Hilt</li>
-                        <li>Coroutines for asynchronous operations</li>
-                        <li>Unit testing and UI testing</li>
-                    </ul>
+                    <h2>Technical Details</h2>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <h3>Development Approach</h3>
+                            <ul>
+                                <li>Modern Android development with Kotlin</li>
+                                <li>MVVM architecture pattern</li>
+                                <li>Clean Architecture principles</li>
+                                <li>Material Design guidelines</li>
+                                <li>Responsive UI implementation</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h3>Key Features</h3>
+                            <ul>
+                                <li>Local data persistence with Room Database</li>
+                                <li>RESTful API integration</li>
+                                <li>Dependency injection with Hilt</li>
+                                <li>Coroutines for asynchronous operations</li>
+                                <li>Unit testing and UI testing</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2024 Portfolio. All rights reserved.</p>
+    <footer>
+        <p>&copy; 2024 Hilem Nur Erdem. All rights reserved.</p>
     </footer>
 </body>
 </html> 
