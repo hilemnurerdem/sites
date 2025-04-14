@@ -46,6 +46,26 @@
             color: #1a4b8c;
         }
     </style>
+    <script>
+        // Counter display script
+        window.addEventListener('load', function() {
+            const counterSpan = document.getElementById('visitor-count');
+            
+            function updateCounter() {
+                if (window.counterInstance && window.counterInstance.count) {
+                    counterSpan.textContent = window.counterInstance.count + ' visitors';
+                }
+            }
+            
+            // Check every second until counter is available
+            const interval = setInterval(() => {
+                updateCounter();
+                if (counterSpan.textContent !== 'Loading...') {
+                    clearInterval(interval);
+                }
+            }, 1000);
+        });
+    </script>
 </head>
 <body>
     <div class="visitor-counter">
