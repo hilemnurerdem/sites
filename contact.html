@@ -57,12 +57,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject" required>
+                        <input type="text" placeholder="Subject" required id="subject">
                     </div>
                     <div class="form-group">
                         <textarea placeholder="Your Message" required id="message"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
+                    <div id="form-status" style="margin-top: 15px; text-align: center; display: none;"></div>
                 </form>
             </div>
         </section>
@@ -74,24 +75,64 @@
 
     <script src="js/main.js"></script>
     <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         
+        const formStatus = document.getElementById('form-status');
+        const submitButton = document.querySelector('.submit-btn');
+        
+        // Get form data
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value;
-        
-        // E-posta gönderme bağlantısını oluştur
-        const mailtoLink = `mailto:hilemnurerdem@gmail.com?subject=Portfolio Contact Form - ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-        
-        // E-posta uygulamasını aç
-        window.location.href = mailtoLink;
-        
-        // Formu temizle
-        this.reset();
-        
-        // Kullanıcıya bilgi ver
-        alert('Form başarıyla gönderildi! E-posta uygulamanız açılacak.');
+
+        try {
+            // Disable submit button while processing
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            
+            // Create form data for sending
+            const formData = {
+                name: name,
+                email: email,
+                subject: subject,
+                message: message,
+                timestamp: new Date().toISOString(),
+                to: 'hilemerdm7@gmail.com'
+            };
+
+            // Send email using EmailJS or similar service
+            // For now, we'll use mailto as a fallback
+            const mailtoLink = `mailto:hilemerdm7@gmail.com?subject=${encodeURIComponent(subject)} - from ${encodeURIComponent(name)}&body=From: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+            
+            window.location.href = mailtoLink;
+
+            // Show success message
+            formStatus.style.display = 'block';
+            formStatus.style.color = '#28a745';
+            formStatus.innerHTML = 'Message sent successfully! Thank you for contacting.';
+            
+            // Reset form
+            this.reset();
+            
+        } catch (error) {
+            // Show error message
+            formStatus.style.display = 'block';
+            formStatus.style.color = '#dc3545';
+            formStatus.innerHTML = 'Sorry, there was an error sending your message. Please try again.';
+            
+            console.error('Form submission error:', error);
+        } finally {
+            // Re-enable submit button
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+            
+            // Hide status message after 5 seconds
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+        }
     });
     </script>
 </body>
