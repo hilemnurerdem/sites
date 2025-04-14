@@ -96,18 +96,27 @@
                 submitButton.disabled = true;
                 submitButton.textContent = 'Sending...';
                 
+                console.log('Sending email with data:', {
+                    from_name: name,
+                    from_email: email,
+                    subject: subject,
+                    message: message
+                });
+
                 // Send email using EmailJS
                 const response = await emailjs.send(
                     "service_dwqentj",
                     "template_j7b9x8b",
                     {
-                        to_name: "Hilem",
                         from_name: name,
                         from_email: email,
                         subject: subject,
-                        message: message
+                        message: message,
+                        reply_to: email
                     }
                 );
+
+                console.log('EmailJS Response:', response);
 
                 if (response.status === 200) {
                     // Show success message
