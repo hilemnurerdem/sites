@@ -6,6 +6,7 @@
     <title>Contact - My Blog</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -73,67 +74,71 @@
         <p>&copy; 2025 Hilem Nur Erdem. All rights reserved.</p>
     </footer>
 
-    <script src="js/main.js"></script>
     <script>
-    document.getElementById('contact-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formStatus = document.getElementById('form-status');
-        const submitButton = document.querySelector('.submit-btn');
-        
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+        (function() {
+            emailjs.init("viWvdMa93dr-qJgY_");
+        })();
 
-        try {
-            // Disable submit button while processing
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            // Create form data for sending
-            const formData = {
-                name: name,
-                email: email,
-                subject: subject,
-                message: message,
-                timestamp: new Date().toISOString(),
-                to: 'hilemerdm7@gmail.com'
-            };
+            const formStatus = document.getElementById('form-status');
+            const submitButton = document.querySelector('.submit-btn');
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
 
-            // Send email using EmailJS or similar service
-            // For now, we'll use mailto as a fallback
-            const mailtoLink = `mailto:hilemerdm7@gmail.com?subject=${encodeURIComponent(subject)} - from ${encodeURIComponent(name)}&body=From: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
-            
-            window.location.href = mailtoLink;
+            try {
+                // Disable submit button while processing
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                
+                // Send email using EmailJS
+                const response = await emailjs.send(
+                    "service_dwqentj",
+                    "template_j7b9x8b",
+                    {
+                        from_name: name,
+                        from_email: email,
+                        subject: subject,
+                        message: message,
+                        to_email: 'hilemerdm7@gmail.com'
+                    }
+                );
 
-            // Show success message
-            formStatus.style.display = 'block';
-            formStatus.style.color = '#28a745';
-            formStatus.innerHTML = 'Message sent successfully! Thank you for contacting.';
-            
-            // Reset form
-            this.reset();
-            
-        } catch (error) {
-            // Show error message
-            formStatus.style.display = 'block';
-            formStatus.style.color = '#dc3545';
-            formStatus.innerHTML = 'Sorry, there was an error sending your message. Please try again.';
-            
-            console.error('Form submission error:', error);
-        } finally {
-            // Re-enable submit button
-            submitButton.disabled = false;
-            submitButton.textContent = 'Send Message';
-            
-            // Hide status message after 5 seconds
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-            }, 5000);
-        }
-    });
+                if (response.status === 200) {
+                    // Show success message
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = '#28a745';
+                    formStatus.innerHTML = 'Message sent successfully! Thank you for contacting.';
+                    
+                    // Reset form
+                    this.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+                
+            } catch (error) {
+                // Show error message
+                formStatus.style.display = 'block';
+                formStatus.style.color = '#dc3545';
+                formStatus.innerHTML = 'Sorry, there was an error sending your message. Please try again.';
+                
+                console.error('Form submission error:', error);
+            } finally {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+                
+                // Hide status message after 5 seconds
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }
+        });
     </script>
 </body>
 </html> 
