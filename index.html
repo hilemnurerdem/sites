@@ -56,10 +56,15 @@
         <span id="visits">0</span>
     </div>
     <script>
-        fetch('https://api.countapi.xyz/hit/hilemnurerdem.com/visits')
+        fetch('https://api.countapi.xyz/hit/hilemnurerdem-portfolio/visits')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('visits').textContent = data.value;
+            })
+            .catch(error => {
+                console.error('Error fetching visitor count:', error);
+                // Fallback to increment if API fails
+                document.getElementById('visits').textContent = '1';
             });
     </script>
     <nav class="navbar">
