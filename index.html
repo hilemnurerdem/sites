@@ -38,23 +38,30 @@
             gap: 8px;
             z-index: 1000;
             backdrop-filter: blur(5px);
+            text-decoration: none;
+            color: #000;
         }
         .visitor-counter i {
             color: #1a4b8c;
         }
-        .visitor-counter img {
-            height: 24px;
-            border-radius: 4px;
+        .visitor-counter span {
+            font-family: monospace;
+            font-size: 15px;
         }
     </style>
 </head>
 <body>
     <div class="visitor-counter">
         <i class="fas fa-eye"></i>
-        <a href="https://info.flagcounter.com/dTkP">
-            <img src="https://s01.flagcounter.com/count2/dTkP/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-        </a>
+        <span id="visits">0</span>
     </div>
+    <script>
+        fetch('https://api.countapi.xyz/hit/hilemnurerdem.com/visits')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visits').textContent = data.value;
+            });
+    </script>
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-links">
