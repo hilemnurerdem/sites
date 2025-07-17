@@ -511,9 +511,11 @@ body::before {
 }
 
 .project-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    max-width: 80%;
+    max-height: 200px;
+    display: block;
+    margin: 0 auto 20px auto;
+    object-fit: contain;
 }
 
 .project-info {
@@ -1387,9 +1389,11 @@ footer {
 
 .screenshot-item img {
     width: 100%;
-    height: auto;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #f5f5f5;
     display: block;
-    border-bottom: 1px solid #eee;
 }
 
 .screenshot-item p {
