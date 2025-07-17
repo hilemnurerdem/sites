@@ -97,7 +97,7 @@
             if (forbiddenPattern.test(name) || forbiddenPattern.test(subject) || forbiddenPattern.test(message)) {
                 formStatus.style.display = 'block';
                 formStatus.style.color = '#dc3545';
-                formStatus.innerHTML = 'Kod veya kod benzeri karakterler/metinler girmek yasaktır!';
+                formStatus.innerHTML = 'Lütfen mesaj alanına sadece metin ve temel noktalama işaretleri giriniz!';
                 setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
                 return false;
             }
