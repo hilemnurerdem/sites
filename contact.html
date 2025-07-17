@@ -51,17 +51,18 @@
                 <form id="contact-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required id="name">
+                            <input type="text" placeholder="Your Name" required id="name" maxlength="50">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required id="email">
+                            <input type="email" placeholder="Your Email" required id="email" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject" required id="subject">
+                        <input type="text" placeholder="Subject" required id="subject" maxlength="20">
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" required id="message"></textarea>
+                        <textarea placeholder="Your Message" required id="message" maxlength="250" oninput="updateCharCount()"></textarea>
+                        <div id="char-count" style="text-align:right; font-size:12px; color:#888; margin-top:2px;">250 characters left</div>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                     <div id="form-status" style="margin-top: 15px; text-align: center; display: none;"></div>
@@ -148,6 +149,15 @@
                 }, 5000);
             }
         });
+
+        function updateCharCount() {
+            const message = document.getElementById('message');
+            const charCount = document.getElementById('char-count');
+            const max = 250;
+            const left = max - message.value.length;
+            charCount.textContent = left + ' characters left';
+        }
+        document.getElementById('message').addEventListener('input', updateCharCount);
     </script>
 </body>
 </html> 
