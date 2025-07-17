@@ -82,9 +82,9 @@
                 <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
             </ul>
-            <div class="nav-actions">
+            <div class="nav-actions" id="navActions">
                 <a href="register.html" class="btn btn-register">Register</a>
-                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="login.html" class="btn btn-login">Log In</a>
             </div>
         </div>
     </nav>
@@ -192,5 +192,15 @@
     <footer>
         <p>&copy; 2025 Hilem Nur Erdem. All rights reserved.</p>
     </footer>
+    <script>
+window.addEventListener('DOMContentLoaded', function() {
+    var navActions = document.getElementById('navActions');
+    var loggedIn = localStorage.getItem('loggedIn');
+    var name = localStorage.getItem('loggedInName');
+    if (loggedIn === 'true' && name) {
+        navActions.innerHTML = '<span style="font-size:16px;font-weight:500;color:#1a4b8c;">Hoş Geldin! ' + name + '</span>';
+    }
+});
+</script>
 </body>
 </html> 
