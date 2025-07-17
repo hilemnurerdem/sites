@@ -92,14 +92,14 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
-            // Kod benzeri karakter ve kelimeler için kontrol
-            const forbiddenPattern = /[<>\{\};]|(function|script|php|class|public|private|def|console\.log)/i;
+            // Kod benzeri karakter ve kelimeler için kontrol (daha kapsamlı)
+            const forbiddenPattern = /[<>{};\[\]\(\)\/=\*\'\"`]|(function|script|php|class|public|private|def|console\.log|alert|var|let|const|import|export|include|require)/i;
             if (forbiddenPattern.test(name) || forbiddenPattern.test(subject) || forbiddenPattern.test(message)) {
                 formStatus.style.display = 'block';
                 formStatus.style.color = '#dc3545';
                 formStatus.innerHTML = 'Kod veya kod benzeri karakterler/metinler girmek yasaktır!';
                 setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
-                return;
+                return false;
             }
 
             try {
@@ -107,13 +107,6 @@
                 submitButton.disabled = true;
                 submitButton.textContent = 'Sending...';
                 
-                console.log('Sending email with data:', {
-                    from_name: name,
-                    from_email: email,
-                    subject: subject,
-                    message: message
-                });
-
                 // Send email using EmailJS
                 const response = await emailjs.send(
                     "service_dwqentj",
@@ -127,15 +120,11 @@
                     }
                 );
 
-                console.log('EmailJS Response:', response);
-
                 if (response.status === 200) {
                     // Show success message
                     formStatus.style.display = 'block';
                     formStatus.style.color = '#28a745';
-                    formStatus.innerHTML = 'Message sent successfully! Thank you for contacting.';
-                    
-                    // Reset form
+                    formStatus.innerHTML = 'Mesajınız gönderildi!';
                     this.reset();
                 } else {
                     throw new Error('Failed to send message');
@@ -145,15 +134,11 @@
                 // Show error message
                 formStatus.style.display = 'block';
                 formStatus.style.color = '#dc3545';
-                formStatus.innerHTML = 'Sorry, there was an error sending your message. Please try again.';
-                
-                console.error('Form submission error:', error);
+                formStatus.innerHTML = 'Mesaj gönderilemedi. Lütfen tekrar deneyin.';
             } finally {
                 // Re-enable submit button
                 submitButton.disabled = false;
                 submitButton.textContent = 'Send Message';
-                
-                // Hide status message after 5 seconds
                 setTimeout(() => {
                     formStatus.style.display = 'none';
                 }, 5000);
