@@ -92,6 +92,16 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
+            // Kod benzeri karakter ve kelimeler için kontrol
+            const forbiddenPattern = /[<>\{\};]|(function|script|php|class|public|private|def|console\.log)/i;
+            if (forbiddenPattern.test(name) || forbiddenPattern.test(subject) || forbiddenPattern.test(message)) {
+                formStatus.style.display = 'block';
+                formStatus.style.color = '#dc3545';
+                formStatus.innerHTML = 'Kod veya kod benzeri karakterler/metinler girmek yasaktır!';
+                setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
+                return;
+            }
+
             try {
                 // Disable submit button while processing
                 submitButton.disabled = true;
