@@ -51,10 +51,10 @@
                 <form id="contact-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required id="name" maxlength="50" autocomplete="off">
+                            <input type="text" placeholder="Your Name" required id="isimAlan" name="isimAlan" maxlength="50" autocomplete="off" autocapitalize="off" spellcheck="false">
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required id="email" maxlength="50" autocomplete="off">
+                            <input type="email" placeholder="Your Email" required id="epostaAlan" name="epostaAlan" maxlength="50" autocomplete="off" autocapitalize="off" spellcheck="false">
                         </div>
                     </div>
                     <div class="form-group">
@@ -87,8 +87,8 @@
             const submitButton = document.querySelector('.submit-btn');
             
             // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            const name = document.getElementById('isimAlan').value;
+            const email = document.getElementById('epostaAlan').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
@@ -97,7 +97,7 @@
             if (forbiddenPattern.test(name) || forbiddenPattern.test(subject) || forbiddenPattern.test(message)) {
                 formStatus.style.display = 'block';
                 formStatus.style.color = '#dc3545';
-                formStatus.innerHTML = 'Lütfen mesaj alanına sadece metin ve temel noktalama işaretleri giriniz!';
+                formStatus.innerHTML = 'Kod veya kod benzeri karakterler/metinler girmek yasaktır!';
                 setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
                 return false;
             }
