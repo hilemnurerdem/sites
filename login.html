@@ -101,8 +101,8 @@
         }
         const user = JSON.parse(userStr);
         if (user.email === email && user.password === password) {
-            localStorage.setItem('loggedIn', 'true');
-            localStorage.setItem('loggedInName', user.name || user.first_name || '');
+            sessionStorage.setItem('loggedIn', 'true');
+            sessionStorage.setItem('loggedInName', user.name || user.first_name || '');
             window.location.href = 'index.html';
         } else {
             errorDiv.textContent = 'Incorrect email or password!';
