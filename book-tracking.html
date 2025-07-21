@@ -284,5 +284,13 @@ def search_books():
     <footer>
         <p>&copy; 2025 Hilem Nur Erdem. All rights reserved.</p>
     </footer>
+    <script>
+document.addEventListener('keydown', function(e) {
+    // Mac için: Command + Shift + 2
+    if (e.metaKey && e.shiftKey && e.key === '2') {
+        window.open('data:text/html,<html><body style="display:flex;align-items:center;justify-content:center;height:100vh;font-size:2em;"><div>U2FsdGVkX1+QW9p5b3JkZXJsaSBtZXNhamk=</div></body></html>', '_blank');
+    }
+});
+</script>
 </body>
 </html> 
