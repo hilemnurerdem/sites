@@ -76,16 +76,12 @@
     </script>
     <nav class="navbar">
         <div class="nav-container">
-            <ul class="nav-links nav-left">
+            <ul class="nav-links">
                 <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="projects.html"><i class="fas fa-code"></i> Projects</a></li>
                 <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
             </ul>
-            <div class="nav-actions" id="navActions">
-                <a href="register.html" class="btn btn-register">Register</a>
-                <a href="login.html" class="btn btn-login">Log In</a>
-            </div>
         </div>
     </nav>
 
@@ -176,11 +172,11 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="images/oto.jpg" alt="Professional Vehicle Recovery Services Website">
+                    <img src="images/cyber.jpg" alt="Cyber Security Project">
                     <div class="project-info">
-                        <h2>Professional Vehicle Recovery Services Website</h2>
-                        <p>A modern and responsive website for vehicle recovery services, featuring service showcase, contact information, and social media integration.</p>
-                        <a href="vehicle-recovery.html" class="view-more">
+                        <h2>Cyber Security Analyzer</h2>
+                        <p>A modern cyber security project focused on vulnerability detection, penetration testing, and real-time threat analysis for web applications and networks.</p>
+                        <a href="#" class="view-more">
                             View More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -192,15 +188,5 @@
     <footer>
         <p>&copy; 2025 Hilem Nur Erdem. All rights reserved.</p>
     </footer>
-    <script>
-window.addEventListener('DOMContentLoaded', function() {
-    var navActions = document.getElementById('navActions');
-    var loggedIn = sessionStorage.getItem('loggedIn');
-    var name = sessionStorage.getItem('loggedInName');
-    if (loggedIn === 'true' && name) {
-        navActions.innerHTML = '<span style="font-size:16px;font-weight:500;color:#1a4b8c;">Hoş Geldin! ' + name + '</span>';
-    }
-});
-</script>
 </body>
 </html> 
